@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../article';
 
 @Component({
@@ -7,20 +7,19 @@ import { Article } from '../article';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  @Input() article: Article;
 
-@Input('article') article: Article;
+  constructor() { }
 
-  upvote(){
+  upvote() {
     this.article.voteUp();
   }
-  downvote(){
+
+  downvote() {
     this.article.voteDown();
   }
-  constructor() { }
 
   ngOnInit() {
   }
 
 }
-
-
